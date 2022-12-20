@@ -55,8 +55,8 @@ Le projet dépend des librairies suivantes :
 
 ## Structure
 Ainsi, le projet a été séparé en 2 dossiers principaux
-- > algorithm
-- > visual
+-  algorithm
+-  visual
   Le dossier `visual` comprend la class `NeatGraph`qui prend en paramètre un `Genome` et permet de représenter graphiquement les noeuds et les connections de celui-ci. Exemple :
 ## NeatGraph
 Comme expliqué plus haut la class `NeatGraph` permet de représenter les noeuds et les connections d'un `genome`. Exemple :
@@ -88,11 +88,25 @@ Neat neat = Neat.builder()
                 .BIAS(true)  
                 .build();
 ```
+### Représentation du réseau
+Un réseau est représenté par la class `Genome` qui comporte une liste de noeuds, une liste de connections et
+une fitness.
+Les noeuds sont réprésentés par la class `NodeGene` qui comporte :
+- un output
+- un type (INPUT, HIDDEN, OUTPUT, BIAIS)
+- un layer : il s'agit d'un double qui permet d'identifier la position d'un noeud dans le réseau
+
+Les connections sont représentés par la class `ConnectionGene` qui comporte :
+- from : le noeud d'entrée
+- to : le noeud de sortie 
+- weight
+- enable (si la connection est activée ou désactivée)
 ### Selection
 Deux classes sont mises à disposition afin de sélectionner un `Genome` sur base d'une population :
 - TournamentSelection
 - WheelSelection
-  (note : ces 2 méthodes implémente l'interface `Selection` et définisse une méthode `select`)
+
+_(note : ces 2 méthodes implémente l'interface `Selection` et définisse une méthode `select`)_
 ### Activation function
 Il est possible de passer en paramètres 3 fonctions d'activation :
 1. `Sigmoid`
