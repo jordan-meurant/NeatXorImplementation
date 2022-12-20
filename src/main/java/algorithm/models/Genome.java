@@ -42,7 +42,6 @@ public class Genome implements Comparable<Genome> {
         if (Math.random() < neat.getWEIGHT_MUTATION_RATE()) {
             mutateWeightRandomly();
         }
-
     }
 
     public void mutateAddNode() {

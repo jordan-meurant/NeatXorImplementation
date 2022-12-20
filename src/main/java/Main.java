@@ -1,5 +1,5 @@
-import algorithm.fitness.Fitness;
 import algorithm.Neat;
+import algorithm.fitness.Fitness;
 import algorithm.models.forward.Node;
 import visual.NeatGraph;
 
@@ -7,20 +7,10 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        double[][] inputs = new double[][]{
-                {0, 0},
-                {0, 1},
-                {1, 0},
-                {1, 1}
-        };
+        double[][] inputs = new double[][]{{0, 0}, {0, 1}, {1, 0}, {1, 1}};
 
         // initialize outputs for XOR
-        double[] outputs = {
-                0.0,
-                1.0,
-                1.0,
-                0.0
-        };
+        double[] outputs = {0.0, 1.0, 1.0, 0.0};
 
         Fitness fitness = (genome, solution) -> {
             ArrayList<Node>[] layers = genome.getLayers();
@@ -32,7 +22,14 @@ public class Main {
             return score;
         };
 
-        Neat neat = Neat.builder().inputSize(2).outputSize(1).inputs(inputs).fitnessFunction(fitness).solutions(outputs).BIAS(true).build();
+        Neat neat = Neat.builder()
+                        .inputSize(2).
+                        outputSize(1)
+                        .inputs(inputs)
+                        .fitnessFunction(fitness)
+                        .solutions(outputs)
+                        .BIAS(true)
+                        .build();
         neat.run();
 
         NeatGraph graph = new NeatGraph(neat.getBestGenome());
