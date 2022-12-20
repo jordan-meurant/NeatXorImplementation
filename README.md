@@ -92,12 +92,9 @@ chaque genome initialisé, on relie les noeuds d'entrée et le biais éventuelle
 aura une fitness différente pour commencer (ce qui n'était pas le cas lorsque aucun lien n'était initialisé dès le début => tous les genomes
 avaient la même fitness).
 
+![img_1.png](resources/g1.png)
 ![img_1.png](resources/g2.png)
-<p float="center">
-  <img src="resources/g1.png" width="500" />
-  <img src="resources/g2.png" width="500" />
 
-</p>
 ### Selection
 Deux classes sont mises à disposition afin de sélectionner un `Genome` sur base d'une population :
 - TournamentSelection
