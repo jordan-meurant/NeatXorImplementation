@@ -8,45 +8,28 @@ Le projet dépend des librairies suivantes :
 <dependencies>
 
 <dependency>
-
-<groupId>org.projectlombok</groupId>
-
-<artifactId>lombok</artifactId>
-
-<version>1.18.24</version>
-
-<scope>provided</scope>
-
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.24</version>
+    <scope>provided</scope>
 </dependency>
 
 <dependency>
-
-<groupId>org.graphstream</groupId>
-
-<artifactId>gs-core</artifactId>
-
-<version>1.3</version>
-
+    <groupId>org.graphstream</groupId>
+    <artifactId>gs-core</artifactId>
+    <version>1.3</version>
 </dependency>
 
 <dependency>
-
-<groupId>org.graphstream</groupId>
-
-<artifactId>gs-algo</artifactId>
-
-<version>1.3</version>
-
+    <groupId>org.graphstream</groupId>
+    <artifactId>gs-algo</artifactId>
+    <version>1.3</version>
 </dependency>
 
 <dependency>
-
-<groupId>org.graphstream</groupId>
-
-<artifactId>gs-ui</artifactId>
-
-<version>1.3</version>
-
+    <groupId>org.graphstream</groupId>
+    <artifactId>gs-ui</artifactId>
+    <version>1.3</version>
 </dependency>
 
 </dependencies>
@@ -163,8 +146,8 @@ Dans le cadre du XOR, le nombre d'itérations final varie énormément. Il arriv
 3 réponses juste sur 4 :
 ![neatgraph](resources/r2.png)
 La cause est qu'il s'agit d'un minimum local et donc on n'arrive pas à en sortir. Pour palier
-à ce problème, une solution aurait été la speciation. Cependant, voici des exemples de résultats
-pour le XOR :
+à ce problème, une solution aurait été la speciation. Cependant, voici un exemple de résultat
+pour le XOR sans être tombé dans un minimum local:
 ![neatgraph](resources/r1.png)
 
 ### Tests
