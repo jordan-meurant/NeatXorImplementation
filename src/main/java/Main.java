@@ -1,5 +1,6 @@
 import algorithm.Neat;
 import algorithm.fitness.Fitness;
+import algorithm.models.Genome;
 import algorithm.models.forward.Node;
 import visual.NeatGraph;
 
@@ -30,9 +31,12 @@ public class Main {
                         .solutions(outputs)
                         .BIAS(true)
                         .build();
-        neat.run();
+        neat.init();
+        //neat.run();
 
-        NeatGraph graph = new NeatGraph(neat.getBestGenome());
+        Genome g = neat.getBasicGenome();
+        g.connectInputsToOutputs();
+        NeatGraph graph = new NeatGraph(g);
         graph.display();
     }
 }

@@ -87,6 +87,18 @@ Les connections sont représentés par la class `ConnectionGene` qui comporte :
 
 Un dictionnaire reprennant la liste des connections est défini dans la class `Neat` afin d'établir un historique de tous les 
 connections de chaque réseau. Ainsi, si une connexion existe déjà dans un autre genome, on pourra la réutiliser.
+### Initialisation de la population
+Lors de l'initialisation de la population, chaque genome est d'abord initialisé : noeuds d'entrée, sorties et biais. Une fois
+chaque genome initialisé, on relie les noeuds d'entrée et le biais éventuelle aux noeuds de sortie. Ainsi, chaque genome
+aura une fitness différente pour commencer (ce qui n'était pas le cas lorsque aucun lien n'était initialisé dès le début => tous les genomes
+avaient la même fitness).
+
+![img_1.png](resources/g2.png)
+<p float="center">
+  <img src="resources/g1.png" width="500" />
+  <img src="resources/g2.png" width="500" />
+
+</p>
 ### Selection
 Deux classes sont mises à disposition afin de sélectionner un `Genome` sur base d'une population :
 - TournamentSelection
