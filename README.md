@@ -140,6 +140,31 @@ public void mutate() {
         }
     }
 ```
+### Crossover
+````java
+public Genome crossOver(Genome parent1, Genome parent2) {
+        ...
+        for (ConnectionGene c : parent1.getConnectionGenes().getList()) {
+            for (ConnectionGene c2 : parent2.getConnectionGenes().getList()) {
+                if (c.getInnovationNumber() == c2.getInnovationNumber()) {
+                    if (Math.random() < CROSSOVER_RATE) {
+                        basicGenome.addConnection(c.cloneConnection());
+                    } else {
+                        basicGenome.addConnection(c.cloneConnection());
+                    }
+                }
+            }
+        }
+        List<ConnectionGene> connectionGeneList = findExcessAndDisjoint(parent1, parent2);
+        for (ConnectionGene c : connectionGeneList) {
+            basicGenome.addConnection(c.cloneConnection());
+        }
+        ...
+        return basicGenome;
+    }
+````
+Ici le crossover permet d'obtenir selon a CROSSOVER_RATE les gènes d'un des 2 parents. En plus de cela, le crossover
+ajoute les gènes disjoint et gènes excess.
 ### Résultats
 Dans le cadre du XOR, le nombre d'itérations final varie énormément. Il arrive que le meilleur 
 `genome` n'obtienne pas une fitness supérieur à 3(4 étant le maximum défini pour le XOR) et donne ainsi 
