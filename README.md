@@ -84,6 +84,9 @@ Les connections sont représentés par la class `ConnectionGene` qui comporte :
 - to : le noeud de sortie 
 - weight
 - enable (si la connection est activée ou désactivée)
+
+Un dictionnaire reprennant la liste des connections est défini dans la class `Neat` afin d'établir un historique de tous les 
+connections de chaque réseau. Ainsi, si une connexion existe déjà dans un autre genome, on pourra la réutiliser.
 ### Selection
 Deux classes sont mises à disposition afin de sélectionner un `Genome` sur base d'une population :
 - TournamentSelection
