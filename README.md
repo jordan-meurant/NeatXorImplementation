@@ -43,7 +43,6 @@ Ainsi, le projet a été séparé en 2 dossiers principaux
   Le dossier `visual` comprend la class `NeatGraph`qui prend en paramètre un `Genome` et permet de représenter graphiquement les noeuds et les connections de celui-ci. Exemple :
 ## NeatGraph
 Comme expliqué plus haut la class `NeatGraph` permet de représenter les noeuds et les connections d'un `genome`. Exemple :
-![[Capture d’écran 2022-12-20 à 23.04.24.png]]
 ![neatgraph](resources/neatGraph.png)
 Dans ce graph, on peut distinguer :
 - les noeuds de la couche d'**entrée** : représentés en
