@@ -99,7 +99,8 @@ public class Neat {
         while (population.getBest(Genome::compareTo).getFitness() < STOP_CRITERIA && iterationCount < MAX_ITERATIONS) {
             iterationCount++;
             System.out.println("Iteration: " + iterationCount + " Best fitness: " + population.getBest(Genome::compareTo).getFitness() + " Number of nodes: " + nodesDictionary.size() + " Number of connections: " + connectionsDictionary.size());
-            this.population = evolve(this.population);
+            //this.population = evolve(this.population);
+            speciatePopulation(this.population);
         }
 
 
@@ -250,6 +251,54 @@ public class Neat {
     public void evaluatePopulation(RandomList<Genome> population, double[] solutions) {
         for (Genome g : population.getList()) {
             g.setFitness(fitnessFunction.getFitness(g, solutions));
+        }
+    }
+
+    public void speciatePopulation(RandomList<Genome> population) {
+        // init species
+        ArrayList<Species> species = new ArrayList<>();
+
+        // for each genome in population
+        for (Genome g : population.getList()) {
+            // init variable to check if genome is added to a species
+            boolean added = false;
+            // for each species
+            for (Species s : species) {
+                // if genome is similar to a species
+                if (s.isSimilar(g)) {
+                    // add genome to species
+                    s.addGenome(g);
+                    // genome is added to a species
+                    added = true;
+                    // break
+                    break;
+                }
+            }
+            // if genome is not added to a species
+            if (!added) {
+                // create a new species
+                Species s = new Species();
+                // add genome to species
+                s.addGenome(g);
+                // add species to list of species
+                species.add(s);
+            }
+
+        }
+
+        // compute average fitness for each species
+        for (Species s : species) {
+            s.computeAverageFitness();
+            s.computeAdjustedFitnessForGenomes();
+        }
+
+
+
+
+        // for each species
+        for (Species s : species) {
+            // reproduce species
+            s.reproduce(this.selection);
         }
     }
 
