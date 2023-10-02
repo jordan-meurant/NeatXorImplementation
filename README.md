@@ -186,11 +186,3 @@ La cause est qu'il s'agit d'un minimum local et donc on n'arrive pas à en sorti
 pour le XOR sans être tombé dans un minimum local:
 ![neatgraph](resources/r1.png)
 
-### Tests
-Comme dit précédemment, l'algorithme NEAT a été principalement testé avec la class `NeatGraph` pour mieux visualiser. Cependant, aucune classe de test n'a été créée.
-## TODO
-- [ ] ajouter la speciation
-- [ ] rendre l'algorithme générique
-- [ ] tester l'algorithme avec le platformer
-- [ ] ajouter un dictionnaire de noeuds pour la mutation(MutationAddNode)
-- [ ] réaliser des tests
